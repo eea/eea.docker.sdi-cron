@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  cron:
+    image: eeacms/sdi-cron
+    restart: always
+    labels:
+      io.rancher.scheduler.affinity:host_label: changeme
+
+    volumes:
+    - /backups:/backups
+
+    environment:
+      XCRONTAB: |
+        "* * * * * /usr/bin/sh time"
+
+      CRONTAB: |-
+        */30 * * * * cd /tmp ; /usr/bin/sh time
+        */2 * * * * cd /tmp ; /usr/bin/sh ls /tmp
+
+ 

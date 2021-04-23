@@ -7,8 +7,8 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
          apt install -y cron \
                      vim \
                      jq \
-                     gdal \
-                     postgresql-client        
+                     gdal-bin \
+                     postgresql-client \   
                      default-jdk -y && \
          apt-get clean
 

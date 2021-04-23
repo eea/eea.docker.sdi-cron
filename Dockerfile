@@ -1,12 +1,14 @@
-FROM ubuntu:16.04
+FROM ubuntu:20.04
 
 MAINTAINER michimau <mauro.michielon@eea.europa.eu>
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections && \
          apt-get update && \
-         apt install cron \
+         apt install -y cron \
                      vim \
                      jq \
+                     gdal \
+                     postgresql-client        
                      default-jdk -y && \
          apt-get clean
 

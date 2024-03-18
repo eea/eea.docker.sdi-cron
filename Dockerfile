@@ -5,6 +5,8 @@ MAINTAINER michimau <mauro.michielon@eea.europa.eu>
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections && \
          apt-get update && \
          apt install -y cron \
+                     curl\
+                     sudo \
                      vim \
                      jq \
                      gdal-bin \
